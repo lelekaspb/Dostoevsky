@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+/* 
+* {
+  outline: 1px dashed red;
+} */
+html {
+  height: 100%;
+} 
+
+body {
+  min-height: 100%;
+}
+
+ul, li {
+  padding: 0em;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  font-size:100%;
+}
+
+body {
+  background-color: #fef8e6;
+  color: #593718;
+  margin: 0;
+  padding: 0;
+  font-family: 'Oxygen', 'Verdana', sans-serif;
+}
+
+
+section {
+  font-size: 1.4em;
+}
+
+section.quote {
+  margin: 5em 8em 3em 0em;
+}
+
+.logo-tablet {
+  display: none;
+}
+
+header {
+  background-color: #fef8e6;
+  max-height: 100%; 
+  width: 220px;
+}
+
+header a {
+  color: #593718; 
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #F29F05;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  
+}
+
+li {
+  margin: 1em 1em;
+  font-size: 1.6em;
+}
+
+nav {
+  position: fixed; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 200px;
+}
+
+.nav-toggle-label, .nav-toggle {
+  display: none;
+}
+
+header figure {
+   max-width: 100%;
+   margin: 1em 0em 0em 1em;
+}
+
+img {
+  width: 95%;
+  height: auto;
+} 
+
+/* img:hover:not(.logo-index) {
+  background-image: url("../images/svg/logo-hover.svg");  
+} */
+
+footer {
+  background-color: #fef8e6;
+  max-height: 100vh;
+}
+
+footer p {
+  padding-left: 10px;
+} 
+
+footer a {
+  color: #593718;
+}
+
+
+footer a:hover {
+  color: #F2B705; 
+}
+
+
+
+/* grid properties */
+body {
+  display: grid;
+  grid-template-areas: 
+      "hd ma ma"
+      /* "hd ma ma"
+      "hd ma ma"
+      "hd ma ma" */
+      "hd fo fo";
+      grid-template-columns: 220px 1fr 1fr;
+      grid-template-rows: 1fr auto; 
+}
+
+header {
+  grid-area: hd;
+}
+
+main {
+  grid-area: ma;
+}
+
+footer {
+  grid-area: fo;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 850px) {
+  .nav-toggle-label {
+    display: block;
+  }
+
+  nav {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 10vh;
+  }
+
+  body {
+    display: grid;
+    grid-template-areas: 
+        "hd hd hd"
+        "ma ma ma"
+        "fo fo fo";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 170px 1fr auto;
+  } 
+
+  main {
+    margin-top: 1em;
+  }
+
+  footer {
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+
+  header figure {
+  display: none;
+  }
+
+
+  header {
+    background-color: #fef8e6;
+    position: fixed; 
+    width: 100%;
+    /* height: 18%; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    z-index: 1;
+  }
+
+  div.logo-tablet {
+    display: block;
+    grid-column: 3/ 4;
+    /* width: 55%; */
+    width: auto;
+    height: 120px;
+    margin: 1.5em 2em 2em auto;
+  }
+
+  div img {
+    height: 100%;
+    width: auto;
+  }
+
+
+  nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 100vh;
+    background-color: rgba(89, 55, 24, 0.95);
+    transform: scale(1, 0);
+    transform-origin: left top;
+    transition: transform 400ms ease-in-out;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 2.5em;
+    margin-top: 4em; 
+  }
+
+  .nav-toggle-label span {
+    background-color: #593718;
+  }
+
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block;
+    background-color: rgba(89, 55, 24);
+    transition: background-color 0.5s ease;
+    height: 1.2em;
+    width: 5em;
+    position: relative;
+  }
+
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+  }
+
+  .nav-toggle-label span::before {
+    bottom: 30px;
+  }
+  .nav-toggle-label span::after {
+    top: 30px;
+  }
+
+  nav a {
+    color:  #fef8e6;
+    opacity: 0;
+    transition: opacity 100ms ease-in-out;
+  }
+
+  nav a:hover {
+    color: #F2B705;
+  }
+
+  .nav-toggle:checked ~ nav  {
+    transform: scale(1, 1);
+  } 
+
+ .nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+  }
+
+  input, label {
+    position: relative;
+    cursor: pointer;
+  }
+
+  ul {
+    margin-top: 7vh;
+    /*margin-bottom: 8vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+  }
+
+  li {
+    margin: 3vh 1em;
+  }
+  /* li {
+    padding-top: 0.3em;
+  }
+} */
+
+@media only screen and (max-width: 400px) {
+  body {
+    display: grid;
+    grid-template-areas: 
+        "hd hd hd"
+        "ma ma ma"
+        "fo fo fo";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 150px 1fr auto;
+  } 
+  header {
+    grid-area: hd;
+  }
+  
+  main {
+    grid-area: ma;
+  }
+  
+  footer {
+    grid-area: fo;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  main {
+    margin-top: 0;
+  }
+  header {
+    background-color: #fef8e6;
+    position: fixed; 
+    width: 100%;
+    /* height: 10%; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    z-index: 1;
+  }
+  .nav-toggle-label {
+    margin-left: 1em;
+    margin-top: 3em; 
+  }
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block;
+    background-color: rgba(89, 55, 24);
+    transition: background-color 0.5s ease;
+    height: 1em;
+    width: 4em;
+    position: relative;
+  }
+  .nav-toggle-label span::before {
+    bottom: 22px;
+  }
+  .nav-toggle-label span::after {
+    top: 7px;
+  }
+  section.summary {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  div.logo-tablet {
+    display: block;
+    grid-column: 3/ 4;
+    /* width: 55%; */
+    width: auto;
+    height: 90px;
+    margin: 1.5em 2em 2em auto;
+  }
+}
+
+/* @media only screen and (max-width: 320px) {
+  
+   ul {
+    padding-left: 1em;
+  } 
+} */
+
+@media screen and (max-height: 600px) {
+  
+  body {
+    display: grid;
+    grid-template-areas: 
+        "hd hd hd"
+        "ma ma ma"
+        "fo fo fo";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 10vh 1fr auto;
+  }
+
+  div.logo-tablet {
+    display: block;
+    grid-column: 3/ 4;
+    /* width: 55%; */
+    width: auto;
+    height: 9vh;
+    margin: 0.5em 1em 1em auto;
+  }
+
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block;
+    background-color: rgba(89, 55, 24);
+    transition: background-color 0.5s ease;
+    height: 0.6em;
+    width: 3em;
+    position: relative;
+  }
+
+  .nav-toggle-label span::before {
+    bottom: 15px;
+  }
+
+  .nav-toggle-label span::after {
+    top: 5px;
+  }
+
+  .nav-toggle-label {
+    margin-left: 3vh;
+    margin-top: 5vh; 
+  }
+
+} 
+
+}
